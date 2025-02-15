@@ -43,23 +43,12 @@ jobs:
         run: |
           cd backend
           mvn dependency:tree
-      
-      - name: Debug Lombok Compilation
-        run: |
-          cd backend
-          mvn clean compile -X | tee lombok_debug.log
-          grep -i "lombok" lombok_debug.log
 
       - name: Remove and Reinstall Maven Dependencies
         run: |
           cd backend
           rm -rf ~/.m2/repository
           mvn clean install -U -DskipTests
-
-      - name: Enable Lombok Annotation Processing
-        run: |
-          cd backend
-          mvn clean compile -Dmaven.compiler.forceJavacCompilerUse=true
 
       - name: Verify JUnit Exists
         run: |
