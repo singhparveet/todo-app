@@ -41,19 +41,24 @@ jobs:
 
       - name: Remove and Reinstall Maven Dependencies
         run: |
+          cd backend
           rm -rf ~/.m2/repository
           mvn clean install -U -DskipTests
 
       - name: Enable Lombok Annotation Processing
+        cd backend
         run: mvn clean compile
 
       - name: Verify JUnit Exists
+        cd backend
         run: mvn dependency:tree | grep "junit"
 
       - name: Run Backend Tests (JUnit + Mockito)
+        cd backend
         run: mvn test
 
       - name: Generate JaCoCo Test Coverage Report
+        cd backend
         run: mvn jacoco:report
 
       - name: Upload JaCoCo Coverage Report
