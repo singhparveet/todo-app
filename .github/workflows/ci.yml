@@ -92,7 +92,7 @@ jobs:
       - name: Run Frontend Tests (Jest)
         run: |
           cd frontend
-          npm test -- --coverage
+          npm test
 
       - name: Build Frontend (Vite)
         run: |
