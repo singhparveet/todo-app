@@ -8,6 +8,11 @@ export default defineConfig({
     globals: true,
     environment: 'jsdom',
     setupFiles: './src/setupTests.js',
-    include: ['src/**/*.test.{js,jsx}', 'src/**/*.spec.{js,jsx}']
+    include: ['src/**/*.test.{js,jsx}', 'src/**/*.spec.{js,jsx}'],
+    coverage: {
+      provider: 'v8', // Use v8 for coverage
+      reporter: ['lcov', 'text'], // Generate lcov report for SonarQube
+      include: ['src/**/*.jsx'], // Include all TSX files
+    },
   },
 })
