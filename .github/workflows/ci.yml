@@ -48,6 +48,7 @@ jobs:
         run: |
           cd backend
           mvn clean compile -X | tee lombok_debug.log
+          grep -i "lombok" lombok_debug.log
 
       - name: Remove and Reinstall Maven Dependencies
         run: |
