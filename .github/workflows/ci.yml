@@ -39,6 +39,11 @@ jobs:
       - name: Install PostgreSQL Client
         run: sudo apt-get install -y postgresql-client
 
+      - name: Debug Maven Dependencies
+        run: |
+          cd backend
+          mvn dependency:tree
+
       - name: Remove and Reinstall Maven Dependencies
         run: |
           cd backend
