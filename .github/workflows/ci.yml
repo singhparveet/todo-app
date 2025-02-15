@@ -67,6 +67,11 @@ jobs:
           rm -rf ~/.m2/repository
           mvn clean install -U -DskipTests
 
+      - name: Enable Lombok Annotation Processing
+        run: |
+          mvn clean compile -Dmaven.compiler.showDeprecation -Dmaven.compiler.showWarnings
+
+
       - name: Verify JUnit Exists
         run: mvn dependency:tree | grep "junit"
 
