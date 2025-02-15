@@ -36,7 +36,8 @@ jobs:
         distribution: 'temurin'
     
     - name: Install PostgreSQL Client
-        run: sudo apt-get install -y postgresql-client
+        run: |
+          sudo apt-get install -y postgresql-client
     
     - name: Create Additional User & Grant Privileges
         run: |
