@@ -70,8 +70,8 @@ jobs:
 
     - name: Install Dependencies
       run: |
-      cd backend
-      mvn clean install -DskipTests
+        cd backend
+        mvn clean install -DskipTests
 
     - name: Build and Test Backend
       run: |
