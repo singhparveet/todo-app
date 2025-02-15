@@ -71,7 +71,16 @@ jobs:
     - name: Install Dependencies
       run: |
         cd backend
-        mvn clean install -DskipTests
+        mvn clean install -U -DskipTests
+      
+    - name: Verify JUnit Exists
+      run: mvn dependency:tree
+    
+    - name: Debug Maven Dependencies
+      run: mvn dependency:list | tee dependencies.txt
+
+    - name: Compile Tests
+      run: mvn test-compile
 
     - name: Build and Test Backend
       run: |
