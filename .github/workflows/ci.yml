@@ -11,6 +11,21 @@ jobs:
     name: Build & Test Backend
     runs-on: ubuntu-latest
 
+    services:
+      postgres:
+        image: postgres:latest
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: testdb
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd="pg_isready -U postgres"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=5
+
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
@@ -24,6 +39,7 @@ jobs:
     - name: Set up PostgreSQL
       run: |
         sudo systemctl start postgresql
+        sudo -u postgres psql -c "ALTER USER postgres PASSWORD 'postgres';"
         psql -U postgres -c "CREATE DATABASE todo_db;"
         psql -U postgres -c "CREATE USER todo_user WITH ENCRYPTED PASSWORD 'todo_password';"
         psql -U postgres -c "GRANT ALL PRIVILEGES ON DATABASE todo_db TO todo_user;"
