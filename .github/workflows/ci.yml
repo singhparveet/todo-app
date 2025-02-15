@@ -47,12 +47,19 @@ jobs:
           sleep 2
         done
 
-    - name: Set up PostgreSQL
+    # - name: Set up PostgreSQL
+    #   run: |
+    #     sudo systemctl start postgresql
+    #     psql -U postgres -c "CREATE DATABASE todo_db;"
+    #     psql -U postgres -c "CREATE USER todo_user WITH ENCRYPTED PASSWORD 'todo_password';"
+    #     psql -U postgres -c "GRANT ALL PRIVILEGES ON DATABASE todo_db TO todo_user;"
+        
+    - name: Create Additional User & Grant Privileges
       run: |
-        sudo systemctl start postgresql
-        psql -U postgres -c "CREATE DATABASE todo_db;"
-        psql -U postgres -c "CREATE USER todo_user WITH ENCRYPTED PASSWORD 'todo_password';"
-        psql -U postgres -c "GRANT ALL PRIVILEGES ON DATABASE todo_db TO todo_user;"
+        PGPASSWORD=postgres psql -h localhost -U postgres -tc "SELECT 1 FROM pg_database WHERE datname = 'todo_db'" | grep -q 1 || \
+        PGPASSWORD=postgres psql -h localhost -U postgres -c "CREATE DATABASE todo_db;"
+        PGPASSWORD=postgres psql -h localhost -U postgres -d todo_db -c "CREATE USER todo_user WITH ENCRYPTED PASSWORD 'todo_password';"
+        PGPASSWORD=postgres psql -h localhost -U postgres -d todo_db -c "GRANT ALL PRIVILEGES ON DATABASE todo_db TO todo_user;"
 
     - name: Build and Test Backend
       run: |
