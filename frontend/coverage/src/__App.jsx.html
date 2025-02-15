@@ -3,15 +3,15 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for src/components/TodoList.js</title>
+    <title>Code coverage report for src/__App.jsx</title>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="../../prettify.css" />
-    <link rel="stylesheet" href="../../base.css" />
-    <link rel="shortcut icon" type="image/x-icon" href="../../favicon.png" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="../favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style type='text/css'>
         .coverage-summary .sorter {
-            background-image: url(../../sort-arrow-sprite.png);
+            background-image: url(../sort-arrow-sprite.png);
         }
     </style>
 </head>
@@ -19,13 +19,13 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/components</a> TodoList.js</h1>
+        <h1><a href="../index.html">All files</a> / <a href="index.html">src</a> __App.jsx</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/32</span>
+                <span class='fraction'>0/30</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/32</span>
+                <span class='fraction'>0/30</span>
             </div>
         
             
@@ -95,7 +95,17 @@
 <a name='L30'></a><a href='#L30'>30</a>
 <a name='L31'></a><a href='#L31'>31</a>
 <a name='L32'></a><a href='#L32'>32</a>
-<a name='L33'></a><a href='#L33'>33</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<a name='L33'></a><a href='#L33'>33</a>
+<a name='L34'></a><a href='#L34'>34</a>
+<a name='L35'></a><a href='#L35'>35</a>
+<a name='L36'></a><a href='#L36'>36</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -116,49 +126,48 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ><span class="branch-0 cbranch-no" title="branch not covered" >import React, { useEffect, useState } from "react";</span></span></span>
-<span class="cstat-no" title="statement not covered" >import axios from "axios";</span>
-<span class="cstat-no" title="statement not covered" >import { Button, TextField, List, ListItem, ListItemText } from "@mui/material";</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >export default function TodoList() {</span>
-<span class="cstat-no" title="statement not covered" >    const [todos, setTodos] = useState([]);</span>
-<span class="cstat-no" title="statement not covered" >    const [newTodo, setNewTodo] = useState("");</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >    useEffect(() =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >        axios.get("http://localhost:8080/api/todos").then((res) =&gt; setTodos(res.data));</span>
-<span class="cstat-no" title="statement not covered" >    }, []);</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >    const addTodo = () =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >        axios.post("http://localhost:8080/api/todos", { title: newTodo, completed: false })</span>
-<span class="cstat-no" title="statement not covered" >            .then(res =&gt; setTodos([...todos, res.data]));</span>
-<span class="cstat-no" title="statement not covered" >        setNewTodo("");</span>
-<span class="cstat-no" title="statement not covered" >    };</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >    return (</span>
-<span class="cstat-no" title="statement not covered" >        &lt;div&gt;</span>
-<span class="cstat-no" title="statement not covered" >            &lt;TextField label="New Todo" value={newTodo} onChange={(e) =&gt; setNewTodo(e.target.value)} /&gt;</span>
-<span class="cstat-no" title="statement not covered" >            &lt;Button onClick={addTodo}&gt;Add&lt;/Button&gt;</span>
-<span class="cstat-no" title="statement not covered" >            &lt;List&gt;</span>
-<span class="cstat-no" title="statement not covered" >                {todos.map(todo =&gt; (</span>
-<span class="cstat-no" title="statement not covered" >                    &lt;ListItem key={todo.id}&gt;</span>
-<span class="cstat-no" title="statement not covered" >                        &lt;ListItemText primary={todo.title} /&gt;</span>
-<span class="cstat-no" title="statement not covered" >                    &lt;/ListItem&gt;</span>
-<span class="cstat-no" title="statement not covered" >                ))}</span>
-<span class="cstat-no" title="statement not covered" >            &lt;/List&gt;</span>
-<span class="cstat-no" title="statement not covered" >        &lt;/div&gt;</span>
-<span class="cstat-no" title="statement not covered" >    );</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" >import { useState } from 'react'<span class="fstat-no" title="function not covered" ><span class="branch-0 cbranch-no" title="branch not covered" ></span></span></span>
+<span class="cstat-no" title="statement not covered" >import reactLogo from './assets/react.svg'</span>
+<span class="cstat-no" title="statement not covered" >import viteLogo from '/vite.svg'</span>
+<span class="cstat-no" title="statement not covered" >import './App.css'</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >function App() {</span>
+<span class="cstat-no" title="statement not covered" >  const [count, setCount] = useState(0)</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  return (</span>
+<span class="cstat-no" title="statement not covered" >    &lt;&gt;</span>
+<span class="cstat-no" title="statement not covered" >      &lt;div&gt;</span>
+<span class="cstat-no" title="statement not covered" >        &lt;a href="https://vite.dev" target="_blank"&gt;</span>
+<span class="cstat-no" title="statement not covered" >          &lt;img src={viteLogo} className="logo" alt="Vite logo" /&gt;</span>
+<span class="cstat-no" title="statement not covered" >        &lt;/a&gt;</span>
+<span class="cstat-no" title="statement not covered" >        &lt;a href="https://react.dev" target="_blank"&gt;</span>
+<span class="cstat-no" title="statement not covered" >          &lt;img src={reactLogo} className="logo react" alt="React logo" /&gt;</span>
+<span class="cstat-no" title="statement not covered" >        &lt;/a&gt;</span>
+<span class="cstat-no" title="statement not covered" >      &lt;/div&gt;</span>
+<span class="cstat-no" title="statement not covered" >      &lt;h1&gt;Vite + React&lt;/h1&gt;</span>
+<span class="cstat-no" title="statement not covered" >      &lt;div className="card"&gt;</span>
+<span class="cstat-no" title="statement not covered" >        &lt;button onClick={() =&gt; setCount((count) =&gt; count + 1)}&gt;</span>
+<span class="cstat-no" title="statement not covered" >          count is {count}</span>
+<span class="cstat-no" title="statement not covered" >        &lt;/button&gt;</span>
+<span class="cstat-no" title="statement not covered" >        &lt;p&gt;</span>
+<span class="cstat-no" title="statement not covered" >          Edit &lt;code&gt;src/App.jsx&lt;/code&gt; and save to test HMR</span>
+<span class="cstat-no" title="statement not covered" >        &lt;/p&gt;</span>
+<span class="cstat-no" title="statement not covered" >      &lt;/div&gt;</span>
+<span class="cstat-no" title="statement not covered" >      &lt;p className="read-the-docs"&gt;</span>
+        Click on the Vite and React logos to learn more
+<span class="cstat-no" title="statement not covered" >      &lt;/p&gt;</span>
+<span class="cstat-no" title="statement not covered" >    &lt;/&gt;</span>
+  )
 <span class="cstat-no" title="statement not covered" >}</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >export default App</span>
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -166,16 +175,16 @@
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-02-15T20:54:44.246Z
+                at 2025-02-15T21:29:50.067Z
             </div>
-        <script src="../../prettify.js"></script>
+        <script src="../prettify.js"></script>
         <script>
             window.onload = function () {
                 prettyPrint();
             };
         </script>
-        <script src="../../sorter.js"></script>
-        <script src="../../block-navigation.js"></script>
+        <script src="../sorter.js"></script>
+        <script src="../block-navigation.js"></script>
     </body>
 </html>
     
