@@ -63,6 +63,7 @@ jobs:
 
       - name: Remove and Reinstall Maven Dependencies
         run: |
+          cd backend
           rm -rf ~/.m2/repository
           mvn clean install -U -DskipTests
 
