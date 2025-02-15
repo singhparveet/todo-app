@@ -106,7 +106,7 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        
+
       # 🔹 Cache SonarQube Dependencies
       - name: Cache SonarQube Packages
         uses: actions/cache@v3
@@ -134,7 +134,7 @@ jobs:
             -Dsonar.projectKey=singhparveet_todo-app \
             -Dsonar.organization=singhparveet \
             -Dsonar.host.url=https://sonarcloud.io \
-            -Dsonar.sources=frontend/src \
+            -Dsonar.sources=src \
             -Dsonar.token=${{ secrets.SONAR_TOKEN }}
       
       - name: Check SonarQube Quality Gate
