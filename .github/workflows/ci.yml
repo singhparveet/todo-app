@@ -104,6 +104,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
       # 🔹 Cache SonarQube Dependencies
       - name: Cache SonarQube Packages
         uses: actions/cache@v3
