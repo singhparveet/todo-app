@@ -82,11 +82,12 @@ jobs:
       # 🔹 Backend - Run SonarQube Analysis
       - name: SonarQube Scan (Backend)
         run: |
+          cd backend
           mvn clean verify sonar:sonar \
             -Dsonar.projectKey=singhparveet_todo-app \
             -Dsonar.organization=singhparveet \
             -Dsonar.host.url=https://sonarcloud.io \
-            -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+            -Dsonar.token=${{ secrets.SONAR_TOKEN }}
 
   build-frontend:
     name: Build & Test Frontend
@@ -125,7 +126,7 @@ jobs:
             -Dsonar.organization=singhparveet \
             -Dsonar.host.url=https://sonarcloud.io \
             -Dsonar.sources=frontend/src \
-            -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+            -Dsonar.token=${{ secrets.SONAR_TOKEN }}
 
   # dockerize:
   #   name: Build & Push Docker Images
