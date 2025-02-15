@@ -16,7 +16,7 @@ jobs:
         env:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
-          POSTGRES_DB: testdb
+          POSTGRES_DB: todo_db # Ensures the database is created
         ports:
           - 5432:5432
         options: >-
@@ -39,10 +39,13 @@ jobs:
       run: |
         sudo apt-get install -y postgresql-client
     
-    - name: Create Additional User & Grant Privileges
+    - name: Wait for PostgreSQL to be Ready
       run: |
-        PGPASSWORD=postgres psql -h localhost -U postgres -d todo_db -c "CREATE USER todo_user WITH ENCRYPTED PASSWORD 'todo_password';"
-        PGPASSWORD=postgres psql -h localhost -U postgres -d todo_db -c "GRANT ALL PRIVILEGES ON DATABASE todo_db TO todo_user;"
+        for i in {1..10}; do
+          pg_isready -h localhost -U postgres && break
+          echo "Waiting for PostgreSQL..."
+          sleep 2
+        done
 
     - name: Set up PostgreSQL
       run: |
