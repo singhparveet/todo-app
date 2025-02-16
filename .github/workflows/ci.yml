@@ -120,6 +120,7 @@ jobs:
         run: |
           cd backend
           mvn clean verify sonar:sonar \
+            -Dsonar.projectName=todo-app \
             -Dsonar.projectKey=singhparveet_todo-app \
             -Dsonar.organization=singhparveet \
             -Dsonar.host.url=https://sonarcloud.io \
@@ -131,6 +132,7 @@ jobs:
           cd frontend
           npx eslint . --ext .js,.jsx,.ts,.tsx || true  # Ignore ESLint errors but log them
           npx sonar-scanner \
+            -Dsonar.projectName=todo-app \
             -Dsonar.projectKey=singhparveet_todo-app \
             -Dsonar.organization=singhparveet \
             -Dsonar.host.url=https://sonarcloud.io \
